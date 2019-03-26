@@ -65,7 +65,6 @@ public class HomeController {
 
     @RequestMapping(value = "/admin/home", method = RequestMethod.GET)
     public String homeAdmin() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-       return "successPage";
+        return "successPage";
     }
 }
