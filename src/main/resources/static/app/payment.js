@@ -1,15 +1,23 @@
 var app = angular.module('payment', []);
 app.controller('PaymentController', ['$http', '$scope', function ($http, $scope) {
     var payment = this;
-    payment.paymentModel = {id: null, paymentDate: '', paymentBy: '', paymentMoney: '', cratedBy: ''};
+    payment.paymentModel = {id: null, paymentDate: '', paymentBy: '', paymentMoney: ''};
     payment.userList = [];
     getUserList();
     payment.savePayment = function (payment) {
         console.log(payment);
+        $http.post('/savePayment', payment).success(function (d) {
+            /* self.success = 'Unit name successfully added in system !!!!';
+             self.error = null;*/
+            getUserList();
+        }).error(function (data, status, headers) {
+            console.log(status);
+            if (status === 409) {
+            }
+        });
     }
 
     function getUserList() {
-        alert("Hello");
         $http.get('/getUserList').success(function (d) {
             console.log(d);
             payment.userList = d;

@@ -6,6 +6,7 @@ import com.vaibrothers.meal_mng.service.interfaces.PaymentService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 @Service
@@ -21,6 +22,11 @@ public class PaymentServiceImpl implements PaymentService {
     @Override
     public List<Payment> list() {
         return paymentRepository.findAll();
+    }
+
+    @Override
+    public List<Payment> getDateWisePaymetnList(Date startDate, Date endDate) {
+        return paymentRepository.getDateWisePaymetnList(startDate, endDate);
     }
 
     @Override

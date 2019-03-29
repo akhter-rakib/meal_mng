@@ -12,6 +12,9 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Date;
+import java.util.List;
+
 @RestController
 public class PaymentRestController {
 
@@ -30,11 +33,13 @@ public class PaymentRestController {
     }
 
     @GetMapping(value = "/testRest")
-    public String test() {
-        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-        User loggedUser = userService.findUserByEmail(auth.getName());
-        System.out.println("***********************************" + loggedUser.getId());
-        return "";
+    public List<Payment> test() {
+        Date endDate = new Date();
+        Date startDate = new Date();
+        startDate.setDate(1);
+        List<Payment> list = paymentService.getDateWisePaymetnList(startDate, endDate);
+        return list;
+
     }
 
 }
