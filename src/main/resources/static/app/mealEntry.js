@@ -1,13 +1,14 @@
-var app = angular.module('payment', []);
-app.controller('PaymentController', ['$http', '$scope', function ($http, $scope) {
-    var payment = this;
-    payment.paymentModel = {id: null, paymentDate: '', paymentBy: '', paymentMoney: ''};
-    payment.userList = [];
+var app = angular.module('mealEntry', []);
+app.controller('MealEntryController', ['$http', '$scope', function ($http, $scope) {
+    var mealEntry = this;
+    mealEntry.mealModel = {id: null, meal_date: '', member: '', quantity: ''};
+
+    mealEntry.userList = [];
     getUserList();
-    payment.savePayment = function (payment) {
-        console.log("Pay" + payment);
-        console.log("test" + payment.paymentBy);
-        $http.post('/savePayment', payment).success(function (d) {
+
+    mealEntry.saveMeal = function (meal) {
+        console.log(meal);
+        $http.post('/saveMeal', meal).success(function (d) {
             /* self.success = 'Unit name successfully added in system !!!!';
              self.error = null;*/
             getUserList();
@@ -21,7 +22,7 @@ app.controller('PaymentController', ['$http', '$scope', function ($http, $scope)
     function getUserList() {
         $http.get('/getUserList').success(function (d) {
             console.log(d);
-            payment.userList = d;
+            mealEntry.userList = d;
         }).error(function (data, status, headers) {
             console.log(data);
         });
