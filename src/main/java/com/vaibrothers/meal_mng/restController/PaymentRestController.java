@@ -28,7 +28,7 @@ public class PaymentRestController {
     public void savePayment(@RequestBody Payment payment) {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
         User loggedUser = userService.findUserByEmail(auth.getName());
-        payment.setCratedBy(loggedUser);
+        payment.setCreatedBy(loggedUser);
         paymentService.savePayment(payment);
     }
 

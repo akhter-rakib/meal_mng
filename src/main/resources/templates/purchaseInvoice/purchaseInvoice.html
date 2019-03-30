@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Purchase Entry</title>
+    <script src="angular/angular.js"></script>
+    <script src="app/purchaseInvoice.js"></script>
+    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+</head>
+<body ng-app="purchaseInvoice">
+<div ng-controller="PurchaseInvoiceController as purchaseInvoiceCtrl">
+    <form class="form-horizontal">
+        <div class="form-group">
+            <label class="control-label col-sm-2">Market Date:</label>
+            <div class="col-sm-10">
+                <input type="date" class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.markedDate">
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Market By:</label>
+            <div class="col-sm-10">
+                <select class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.marketBy"
+                        ng-options="user.name  for  user in purchaseInvoiceCtrl.userList">
+                </select>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label col-sm-2">Total Cost:</label>
+            <div class="col-sm-10">
+                <input type="text" class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.totalCost">
+            </div>
+        </div>
+        <div class="form-group">
+            <button type="button" class="btn btn-primary"
+                    ng-click="purchaseInvoiceCtrl.savePurchaseInvoice(purchaseInvoiceCtrl.purchaseInvoiceModel)"
+                    ng-disabled="form.$invalid">
+                {{!purchaseInvoiceCtrl.purchaseInvoiceModel.id ? 'Save' : 'Update'}} &nbsp; <i
+                    class="fa fa-floppy-o"/></i>
+            </button>
+        </div>
+    </form>
+    <!-- <table class="table table-hover table-bordered black">
+         <thead>
+         <tr>
+             <th>No.</th>
+             <th>Student Name</th>
+             <th>Roll No.</th>
+             <th>Class Name</th>
+             <th>Action</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr ng-repeat="stdList in stdCtr.studentList">
+             <td>{{$index+1}}</td>
+             <td>{{stdList.name}}</td>
+             <td> {{stdList.roll}}</td>
+             <td> {{stdList.className}}</td>
+             <td>
+                 <button type="button" ng-click="stdCtr.update(stdList.id)" class="btn btn-info ">Edit</button>
+                 <button type="button" ng-click="stdCtr.removeStudent(stdList.id)" class="btn btn-danger ">Inactive
+                 </button>
+             </td>
+         </tr>
+         </tbody>
+     </table>-->
+</div>
+</body>
+</html>

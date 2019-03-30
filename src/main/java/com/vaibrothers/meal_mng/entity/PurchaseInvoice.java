@@ -7,20 +7,21 @@ import java.util.Date;
 
 @Data
 @Entity
-@Table(name = "payment")
-public class Payment {
+public class PurchaseInvoice {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
 
-    private Date paymentDate;
-
     @ManyToOne
-    @JoinColumn(name = "payment_by", nullable = false)
-    private User paymentBy;
+    @JoinColumn(name = "market_by", nullable = false)
+    private User marketBy;
 
-    private Double paymentMoney;
+    private Date markedDate;
+
+    private Date createdOn;
+
+    private Double totalCost;
 
     @ManyToOne
     @JoinColumn(name = "created_by", nullable = false)

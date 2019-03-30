@@ -25,5 +25,5 @@ public class Meal {
 
     @ManyToOne
     @JoinColumn(name = "created_by", nullable = false)
-    private User cratedBy;
+    private User createdBy;
 }
