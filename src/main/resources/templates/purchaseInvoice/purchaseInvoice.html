@@ -5,32 +5,34 @@
     <title>Purchase Entry</title>
     <script src="angular/angular.js"></script>
     <script src="app/purchaseInvoice.js"></script>
+    <script src="app/date.js"></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/custom.css">
 </head>
 <body ng-app="purchaseInvoice">
 <div ng-controller="PurchaseInvoiceController as purchaseInvoiceCtrl">
-    <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-sm-2">Market Date:</label>
-            <div class="col-sm-10">
+    <form class="form-horizontal text-center">
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Costing Date:</label>
+            <div class="col-sm-8">
                 <input type="date" class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.markedDate">
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2">Market By:</label>
-            <div class="col-sm-10">
+        <div class="form-group row">
+            <label class="control-label col-sm-2">Responsible Person:</label>
+            <div class="col-sm-8">
                 <select class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.marketBy"
                         ng-options="user.name  for  user in purchaseInvoiceCtrl.userList">
                 </select>
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group row">
             <label class="control-label col-sm-2">Total Cost:</label>
-            <div class="col-sm-10">
+            <div class="col-sm-8">
                 <input type="text" class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.totalCost">
             </div>
         </div>
-        <div class="form-group">
+        <div class="form-group row">
             <button type="button" class="btn btn-primary"
                     ng-click="purchaseInvoiceCtrl.savePurchaseInvoice(purchaseInvoiceCtrl.purchaseInvoiceModel)"
                     ng-disabled="form.$invalid">
