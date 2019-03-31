@@ -2,8 +2,8 @@ var app = angular.module('costingTypesEntry', []);
 app.controller('CostingTypesController', ['$http', '$scope', function ($http, $scope) {
     var costingTypesEntry = this;
     costingTypesEntry.costingTypesModel = {
-        id: null,
-        costing_name: ''
+        id: '',
+        costingName: ''
     };
 
 
