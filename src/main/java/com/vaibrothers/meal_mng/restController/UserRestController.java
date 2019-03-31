@@ -1,4 +1,4 @@
-package com.vaibrothers.meal_mng.controller;
+package com.vaibrothers.meal_mng.restController;
 
 import com.vaibrothers.meal_mng.entity.User;
 import com.vaibrothers.meal_mng.service.interfaces.UserService;

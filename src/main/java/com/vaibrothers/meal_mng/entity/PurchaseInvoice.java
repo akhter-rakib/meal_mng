@@ -27,5 +27,9 @@ public class PurchaseInvoice {
     @JoinColumn(name = "created_by", nullable = false)
     private User createdBy;
 
+    @ManyToOne
+    @JoinColumn(name = "cost_type", nullable = false)
+    private CostTypes costTypes;
+
 
 }

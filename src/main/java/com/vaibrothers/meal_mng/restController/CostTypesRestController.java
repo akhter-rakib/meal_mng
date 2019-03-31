@@ -32,4 +32,6 @@ public class CostTypesRestController {
         costTypesService.saveCostTypes(costTypes);
     }
 
+
+
 }

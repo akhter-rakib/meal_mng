@@ -5,11 +5,23 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
         id: null,
         marketBy: '',
         markedDate: '',
+        costTypes: '',
         createdOn: '',
         totalCost: ''
     };
     purchaseInvoice.userList = [];
+    purchaseInvoice.costTypeList = [];
     getUserList();
+    getCostTypesList();
+
+    function getCostTypesList() {
+        $http.get('/getCostTypes').success(function (d) {
+            console.log(d);
+            purchaseInvoice.costTypeList = d;
+        }).error(function (data, status, headers) {
+            console.log(data);
+        });
+    }
 
     purchaseInvoice.savePurchaseInvoice = function (purchaseInvoice) {
         console.log(purchaseInvoice);
