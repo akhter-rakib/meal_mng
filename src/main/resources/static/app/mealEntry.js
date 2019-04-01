@@ -12,6 +12,7 @@ app.controller('MealEntryController', ['$http', '$scope', function ($http, $scop
             /* self.success = 'Unit name successfully added in system !!!!';
              self.error = null;*/
             getUserList();
+            reset();
         }).error(function (data, status, headers) {
             console.log(status);
             if (status === 409) {
@@ -26,5 +27,8 @@ app.controller('MealEntryController', ['$http', '$scope', function ($http, $scop
         }).error(function (data, status, headers) {
             console.log(data);
         });
+    }
+    function reset() {
+        mealEntry.mealModel = {id: null, meal_date: new Date(), member: '', quantity: ''};
     }
 }]);

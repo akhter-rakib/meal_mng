@@ -13,12 +13,16 @@ app.controller('CostingTypesController', ['$http', '$scope', function ($http, $s
             /* self.success = 'Unit name successfully added in system !!!!';
              self.error = null;*/
             //getUserList();
+            reset();
         }).error(function (data, status, headers) {
             console.log(status);
             if (status === 409) {
             }
         });
     }
-    costingTypesEntry.costingTypesModel = {id: '', costingName: ''}
+
+    function reset() {
+        costingTypesEntry.costingTypesModel = {id: '', costingName: ''};
+    }
 
 }]);
