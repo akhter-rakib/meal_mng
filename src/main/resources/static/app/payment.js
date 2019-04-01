@@ -1,7 +1,7 @@
 var app = angular.module('payment', []);
 app.controller('PaymentController', ['$http', '$scope', function ($http, $scope) {
     var payment = this;
-    payment.paymentModel = {id: null, paymentDate: '', paymentBy: '', paymentMoney: ''};
+    payment.paymentModel = {id: null, paymentDate: new Date(), paymentBy: '', paymentMoney: ''};
     payment.userList = [];
     getUserList();
     payment.savePayment = function (payment) {
@@ -11,6 +11,7 @@ app.controller('PaymentController', ['$http', '$scope', function ($http, $scope)
             /* self.success = 'Unit name successfully added in system !!!!';
              self.error = null;*/
             getUserList();
+            reset();
         }).error(function (data, status, headers) {
             console.log(status);
             if (status === 409) {
@@ -25,5 +26,8 @@ app.controller('PaymentController', ['$http', '$scope', function ($http, $scope)
         }).error(function (data, status, headers) {
             console.log(data);
         });
+    }
+    function reset() {
+        payment.paymentModel = {id: null, paymentDate: new Date(), paymentBy: '', paymentMoney: ''};
     }
 }]);

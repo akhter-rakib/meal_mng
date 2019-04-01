@@ -4,7 +4,7 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
     purchaseInvoice.purchaseInvoiceModel = {
         id: null,
         marketBy: '',
-        markedDate: '',
+        markedDate: new Date(),
         costTypes: '',
         createdOn: '',
         totalCost: ''
@@ -29,6 +29,7 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
             /* self.success = 'Unit name successfully added in system !!!!';
              self.error = null;*/
             getUserList();
+            reset();
         }).error(function (data, status, headers) {
             console.log(status);
             if (status === 409) {
@@ -43,5 +44,15 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
         }).error(function (data, status, headers) {
             console.log(data);
         });
+    }
+    function reset() {
+        purchaseInvoice.purchaseInvoiceModel = {
+            id: null,
+            marketBy: '',
+            markedDate: new Date(),
+            costTypes: '',
+            createdOn: '',
+            totalCost: ''
+        };
     }
 }]);
