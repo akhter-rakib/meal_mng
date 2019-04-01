@@ -7,19 +7,21 @@
     <script src="app/purchaseInvoice.js"></script>
     <script src="app/date.js"></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
-    <link rel="stylesheet" href="/css/custom.css">
+    <link rel="stylesheet" href="/bootstrap/css/custom-style.css">
+
 </head>
 <body ng-app="purchaseInvoice">
+<h3>Regular Cost Entry</h3>
 <div ng-controller="PurchaseInvoiceController as purchaseInvoiceCtrl">
-    <form class="form-horizontal text-center">
+    <form class="form-horizontal">
         <div class="form-group row">
-            <label class="control-label col-sm-2">Costing Date:</label>
+            <label class="control-label col-sm-4">Costing Date:</label>
             <div class="col-sm-8">
                 <input type="date" class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.markedDate">
             </div>
         </div>
         <div class="form-group row">
-            <label class="control-label col-sm-2">Responsible Person:</label>
+            <label class="control-label col-sm-4">Responsible Person:</label>
             <div class="col-sm-8">
                 <select class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.marketBy"
                         ng-options="user.name  for  user in purchaseInvoiceCtrl.userList">
@@ -27,7 +29,7 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="control-label col-sm-2">Cost Type:</label>
+            <label class="control-label col-sm-4">Cost Type:</label>
             <div class="col-sm-8">
                 <select class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.costTypes"
                         ng-options="costType.costingName  for  costType in purchaseInvoiceCtrl.costTypeList">
@@ -35,18 +37,21 @@
             </div>
         </div>
         <div class="form-group row">
-            <label class="control-label col-sm-2">Total Cost:</label>
+            <label class="control-label col-sm-4">Total Cost:</label>
             <div class="col-sm-8">
                 <input type="text" class="form-control" ng-model="purchaseInvoiceCtrl.purchaseInvoiceModel.totalCost">
             </div>
         </div>
         <div class="form-group row">
-            <button type="button" class="btn btn-primary"
-                    ng-click="purchaseInvoiceCtrl.savePurchaseInvoice(purchaseInvoiceCtrl.purchaseInvoiceModel)"
-                    ng-disabled="form.$invalid">
-                {{!purchaseInvoiceCtrl.purchaseInvoiceModel.id ? 'Save' : 'Update'}} &nbsp; <i
-                    class="fa fa-floppy-o"/></i>
-            </button>
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                <button type="button" class="btn btn-primary"
+                        ng-click="purchaseInvoiceCtrl.savePurchaseInvoice(purchaseInvoiceCtrl.purchaseInvoiceModel)"
+                        ng-disabled="form.$invalid">
+                    {{!purchaseInvoiceCtrl.purchaseInvoiceModel.id ? 'Save' : 'Update'}} &nbsp; <i
+                        class="fa fa-floppy-o"/></i>
+                </button>
+            </div>
         </div>
     </form>
     <!-- <table class="table table-hover table-bordered black">

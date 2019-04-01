@@ -6,35 +6,40 @@
     <script src="angular/angular.js"></script>
     <script src="app/mealEntry.js"></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap/css/custom-style.css">
 </head>
 <body ng-app="mealEntry">
 <div ng-controller="MealEntryController as mealEntryCtrl">
+    <h3>Daily Meal Entry</h3>
     <form class="form-horizontal">
-        <div class="form-group">
-            <label class="control-label col-sm-2">Meal Date:</label>
-            <div class="col-sm-10">
+        <div class="form-group row">
+            <label class="control-label col-sm-4">Meal Date:</label>
+            <div class="col-sm-8">
                 <input type="date" class="form-control" ng-model="mealEntryCtrl.mealModel.meal_date">
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2">Member:</label>
-            <div class="col-sm-10">
+        <div class="form-group row">
+            <label class="control-label col-sm-4">Member:</label>
+            <div class="col-sm-8">
                 <select class="form-control" ng-model="mealEntryCtrl.mealModel.member"
                         ng-options="user.name  for  user in mealEntryCtrl.userList">
                 </select>
             </div>
         </div>
-        <div class="form-group">
-            <label class="control-label col-sm-2">Meal Quantity:</label>
-            <div class="col-sm-10">
+        <div class="form-group row">
+            <label class="control-label col-sm-4">Meal Quantity:</label>
+            <div class="col-sm-8">
                 <input type="text" class="form-control" ng-model="mealEntryCtrl.mealModel.quantity">
             </div>
         </div>
-        <div class="form-group">
-            <button type="button" class="btn btn-primary" ng-click="mealEntryCtrl.saveMeal(mealEntryCtrl.mealModel)"
-                    ng-disabled="form.$invalid">
-                {{!mealEntryCtrl.mealModel.id ? 'Save' : 'Update'}} &nbsp; <i class="fa fa-floppy-o"/></i>
-            </button>
+        <div class="form-group row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                <button type="button" class="btn btn-primary" ng-click="mealEntryCtrl.saveMeal(mealEntryCtrl.mealModel)"
+                        ng-disabled="form.$invalid">
+                    {{!mealEntryCtrl.mealModel.id ? 'Save' : 'Update'}} &nbsp; <i class="fa fa-floppy-o"/></i>
+                </button>
+            </div>
         </div>
     </form>
     <!-- <table class="table table-hover table-bordered black">
