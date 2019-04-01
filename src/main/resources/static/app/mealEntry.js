@@ -1,7 +1,7 @@
 var app = angular.module('mealEntry', []);
 app.controller('MealEntryController', ['$http', '$scope', function ($http, $scope) {
     var mealEntry = this;
-    mealEntry.mealModel = {id: null, meal_date: '', member: '', quantity: ''};
+    mealEntry.mealModel = {id: null, meal_date: new Date(), member: '', quantity: ''};
 
     mealEntry.userList = [];
     getUserList();

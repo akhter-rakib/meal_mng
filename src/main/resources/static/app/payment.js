@@ -1,7 +1,7 @@
 var app = angular.module('payment', []);
 app.controller('PaymentController', ['$http', '$scope', function ($http, $scope) {
     var payment = this;
-    payment.paymentModel = {id: null, paymentDate: '', paymentBy: '', paymentMoney: ''};
+    payment.paymentModel = {id: null, paymentDate: new Date(), paymentBy: '', paymentMoney: ''};
     payment.userList = [];
     getUserList();
     payment.savePayment = function (payment) {

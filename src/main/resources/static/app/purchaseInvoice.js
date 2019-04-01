@@ -4,7 +4,7 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
     purchaseInvoice.purchaseInvoiceModel = {
         id: null,
         marketBy: '',
-        markedDate: '',
+        markedDate: new Date(),
         costTypes: '',
         createdOn: '',
         totalCost: ''

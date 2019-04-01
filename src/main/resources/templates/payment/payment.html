@@ -35,10 +35,12 @@
         <div class="form-group row">
             <div class="col-sm-4"></div>
             <div class="col-sm-8">
-            <button type="button" class="btn btn-primary" ng-click="paymentCtrl.savePayment(paymentCtrl.paymentModel)"
-                    ng-disabled="form.$invalid">
-                {{!paymentCtrl.paymentModel.id ? 'Save' : 'Update'}} &nbsp; <i class="fa fa-floppy-o"/></i>
-            </button>
+                <a href="/home" class="btn btn-danger">Back</a>
+                <button type="button" class="btn btn-primary"
+                        ng-click="paymentCtrl.savePayment(paymentCtrl.paymentModel)"
+                        ng-disabled="form.$invalid">
+                    {{!paymentCtrl.paymentModel.id ? 'Save' : 'Update'}} &nbsp; <i class="fa fa-floppy-o"/></i>
+                </button>
             </div>
         </div>
     </form>

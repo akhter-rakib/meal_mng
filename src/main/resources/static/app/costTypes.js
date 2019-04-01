@@ -19,9 +19,6 @@ app.controller('CostingTypesController', ['$http', '$scope', function ($http, $s
             }
         });
     }
-
-    costingTypesEntry.resetCostingTypes=  function reset() {
-        costingTypesEntry.costingTypesModel = {id: '', costingName: ''};
-    }
+    costingTypesEntry.costingTypesModel = {id: '', costingName: ''}
 
 }]);
