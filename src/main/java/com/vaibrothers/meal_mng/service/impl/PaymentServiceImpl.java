@@ -30,6 +30,11 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     @Override
+    public List<Payment> getPaymentListByMonth() {
+        return paymentRepository.getPaymentListByMonth();
+    }
+
+    @Override
     public Payment update(Payment payment) {
         return null;
     }

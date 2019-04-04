@@ -34,4 +34,9 @@ public class PurchaseInvoiceImpl implements PurchaseInvoiceService {
     public PurchaseInvoice update(PurchaseInvoice purchaseInvoice) {
         return null;
     }
+
+    @Override
+    public List<PurchaseInvoice> getPaymentListByMonth() {
+        return purchaseInvoiceRepository.getPurchasListByMonth();
+    }
 }

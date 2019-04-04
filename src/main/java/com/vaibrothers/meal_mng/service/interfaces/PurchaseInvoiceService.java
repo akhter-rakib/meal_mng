@@ -13,4 +13,6 @@ public interface PurchaseInvoiceService {
     public List<PurchaseInvoice> getDateWisePurchaseList(Date startDate, Date endDate);
 
     public PurchaseInvoice update(PurchaseInvoice purchaseInvoice);
+
+    public List<PurchaseInvoice> getPaymentListByMonth();
 }

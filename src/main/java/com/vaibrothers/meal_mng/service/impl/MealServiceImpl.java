@@ -32,6 +32,11 @@ public class MealServiceImpl implements MealService {
     }
 
     @Override
+    public List<Meal> getPaymentListByMonth() {
+        return mealRepository.getMealListByMonth();
+    }
+
+    @Override
     public Meal update(Meal meal) {
         return null;
     }

@@ -14,4 +14,7 @@ public interface PurchaseInvoiceRepository extends JpaRepository<PurchaseInvoice
 
     @Query("select purchase from PurchaseInvoice purchase where purchase.markedDate between :startDate and :endDate")
     public List<PurchaseInvoice> getDateWisePurchaseList(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
+
+    @Query(value = "SELECT user.name,SUM(purchase.totalCost) AS total FROM PurchaseInvoice purchase INNER JOIN User user ON purchase.marketBy= user.id GROUP BY purchase.marketBy")
+    public List<PurchaseInvoice> getPurchasListByMonth();
 }

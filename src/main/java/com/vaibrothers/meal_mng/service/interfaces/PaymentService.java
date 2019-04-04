@@ -13,5 +13,7 @@ public interface PaymentService {
 
     public List<Payment> getDateWisePaymetnList(Date startDate, Date endDate);
 
+    public List<Payment> getPaymentListByMonth();
+
     public Payment update(Payment payment);
 }

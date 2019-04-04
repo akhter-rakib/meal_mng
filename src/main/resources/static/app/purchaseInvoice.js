@@ -11,8 +11,20 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
     };
     purchaseInvoice.userList = [];
     purchaseInvoice.costTypeList = [];
+    purchaseInvoice.purchaseList =[];
     getUserList();
     getCostTypesList();
+    purchaseList();
+
+    function purchaseList() {
+        $http.get('/purchaseList').success(function (d) {
+            console.log(d);
+            purchaseInvoice.purchaseList = d;
+        }).error(function (data, status, headers) {
+            console.log(data);
+        });
+    };
+
 
     function getCostTypesList() {
         $http.get('/getCostTypes').success(function (d) {
@@ -29,6 +41,7 @@ app.controller('PurchaseInvoiceController', ['$http', '$scope', function ($http,
             /* self.success = 'Unit name successfully added in system !!!!';
              self.error = null;*/
             getUserList();
+            purchaseList();
             reset();
         }).error(function (data, status, headers) {
             console.log(status);

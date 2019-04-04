@@ -15,4 +15,7 @@ public interface MealRepository extends JpaRepository<Meal, Integer> {
     @Query("select meal from Meal meal where meal.meal_date between :startDate and :endDate")
     public List<Meal> getDateWiseMealList(@Param("startDate") Date startDate, @Param("endDate") Date endDate);
 
+    @Query(value = "SELECT user.name,SUM(meal.quantity) AS total FROM Meal meal INNER JOIN User user ON meal.member= user.id GROUP BY meal.member")
+    public List<Meal> getMealListByMonth();
+
 }

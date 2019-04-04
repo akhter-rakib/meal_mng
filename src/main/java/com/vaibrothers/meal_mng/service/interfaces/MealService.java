@@ -13,5 +13,7 @@ public interface MealService {
 
     public List<Meal> getDateWisePaymetnList(Date startDate, Date endDate);
 
+    public List<Meal> getPaymentListByMonth();
+
     public Meal update(Meal meal);
 }

@@ -15,4 +15,8 @@ public interface PaymentRepository extends JpaRepository<Payment, Integer> {
     @Query(value = "SELECT payment FROM Payment payment where payment.paymentDate between :startDate and :endDate")
     public List<Payment> getDateWisePaymetnList(@Param("startDate") Date startDate,
                                                 @Param("endDate") Date endDate);
+
+    @Query(value = "SELECT user.name,SUM(payment.paymentMoney) AS total FROM Payment payment INNER JOIN User user ON payment.paymentBy= user.id GROUP BY payment.paymentBy")
+    public List<Payment> getPaymentListByMonth();
 }
+

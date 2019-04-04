@@ -43,30 +43,38 @@
             </div>
         </div>
     </form>
-    <!-- <table class="table table-hover table-bordered black">
-         <thead>
-         <tr>
-             <th>No.</th>
-             <th>Student Name</th>
-             <th>Roll No.</th>
-             <th>Class Name</th>
-             <th>Action</th>
-         </tr>
-         </thead>
-         <tbody>
-         <tr ng-repeat="stdList in stdCtr.studentList">
-             <td>{{$index+1}}</td>
-             <td>{{stdList.name}}</td>
-             <td> {{stdList.roll}}</td>
-             <td> {{stdList.className}}</td>
-             <td>
-                 <button type="button" ng-click="stdCtr.update(stdList.id)" class="btn btn-info ">Edit</button>
-                 <button type="button" ng-click="stdCtr.removeStudent(stdList.id)" class="btn btn-danger ">Inactive
-                 </button>
-             </td>
-         </tr>
-         </tbody>
-     </table>-->
+    <h3>All Member's Meal List</h3>
+    <div class="form-group row">
+        <label class="control-label col-sm-2 text-right">Start Date:</label>
+        <div class="col-sm-4">
+            <input type="date" class="form-control" ng-model="mealEntryCtrl.mealModel.meal_date">
+        </div>
+        <label class="control-label col-sm-2 text-right">End Date:</label>
+        <div class="col-sm-4">
+            <input type="date" class="form-control" ng-model="mealEntryCtrl.mealModel.meal_date">
+        </div>
+    </div>
+    <div class="form-group row text-center">
+        <div class="col-sm-5"></div>
+        <button type="button" class="btn btn-primary">Select</button>
+        <div class="col-sm-5"></div>
+    </div>
+    <table class="table table-hover table-bordered black">
+        <thead>
+        <tr>
+            <th>No.</th>
+            <th>Member's Name</th>
+            <th>Total Meal</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="mealList in mealEntryCtrl.mealList">
+            <td>{{$index+1}}</td>
+            <td>{{mealList[0]}}</td>
+            <td> {{mealList[1]}}</td>
+        </tr>
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
