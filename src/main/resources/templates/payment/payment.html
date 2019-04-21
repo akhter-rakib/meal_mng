@@ -2,15 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Payment Entry</title>
+    <title>Payment Entrys</title>
     <script src="angular/angular.js"></script>
     <script src="app/payment.js"></script>
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/bootstrap/css/custom-style.css">
 </head>
 <body ng-app="payment">
-<h3>Payment Entry</h3>
+
 <div ng-controller="PaymentController as paymentCtrl">
+    <h3>Payment Entry ({{paymentCtrl.today | date : "MMM,yy" }})</h3>
     <form class="form-horizontal">
         <div class="form-group row">
             <label class="control-label col-sm-4">Payment Date:</label>
@@ -48,16 +49,19 @@
     <div class="form-group row">
         <label class="control-label col-sm-2 text-right">Start Date:</label>
         <div class="col-sm-4">
-            <input type="date" class="form-control" ng-model="paymentCtrl.paymentModel.paymentDate">
+            <input type="date" class="form-control" ng-model="paymentCtrl.firstDayofCurrentMonth">
         </div>
         <label class="control-label col-sm-2 text-right">End Date:</label>
         <div class="col-sm-4">
-            <input type="date" class="form-control" ng-model="paymentCtrl.paymentModel.paymentDate">
+            <input type="date" class="form-control" ng-model="paymentCtrl.today">
         </div>
     </div>
     <div class="form-group row text-center">
         <div class="col-sm-5"></div>
-        <button type="button" class="btn btn-primary">Select</button>
+        <button type="button" class="btn btn-primary"
+                ng-click="paymentCtrl.getPaymentList(paymentCtrl.firstDayofCurrentMonth,paymentCtrl.today)">
+            Select
+        </button>
         <div class="col-sm-5"></div>
     </div>
     <table class="table table-hover table-bordered black">

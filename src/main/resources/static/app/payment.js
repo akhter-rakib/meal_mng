@@ -3,18 +3,30 @@ app.controller('PaymentController', ['$http', '$scope', function ($http, $scope)
     var payment = this;
     payment.paymentModel = {id: null, paymentDate: new Date(), paymentBy: '', paymentMoney: ''};
     payment.userList = [];
-    payment.memberList =[];
+    payment.memberList = [];
     getUserList();
     memberList();
+    payment.today = new Date();
+    payment.firstDayofCurrentMonth = new Date(payment.today.getFullYear(), payment.today.getMonth(), 1);
 
     function memberList() {
         $http.get('/memberList').success(function (d) {
             console.log(d);
-            payment.memberList=d;
+            payment.memberList = d;
         }).error(function (data, status, headers) {
             console.log(data);
         });
     };
+
+    function getDateWisePaymentList(firstDayofCurrentMonth, today) {
+        payment.getPaymentList(firstDayofCurrentMonth, today);
+    }
+
+    payment.getPaymentList = function (firstDayofCurrentMonth, today) {
+        alert(firstDayofCurrentMonth);
+        alert(today);
+    }
+
 
     payment.savePayment = function (payment) {
         console.log("Pay" + payment);
@@ -40,6 +52,7 @@ app.controller('PaymentController', ['$http', '$scope', function ($http, $scope)
             console.log(data);
         });
     }
+
     function reset() {
         payment.paymentModel = {id: null, paymentDate: new Date(), paymentBy: '', paymentMoney: ''};
     }
